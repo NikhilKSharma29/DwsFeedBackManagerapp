@@ -1,0 +1,25 @@
+{
+  "feedbacks": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "message": "Great work on the new design!",
+      "date": "2025-07-21T11:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "message": "The app is very user-friendly. Great job!",
+      "date": "2025-07-20T15:30:00.000Z"
+    },
+    {
+      "id": "cefb",
+      "name": "Test User",
+      "email": "test@example.com",
+      "message": "Testing from Postman",
+      "date": "2025-07-21T12:30:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Next.js Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - json-server
+    networks:
+      - feedback-network
+
+  # JSON Server Backend
+  json-server:
+    image: node:20-alpine
+    container_name: json-server
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./db.json:/data/db.json
+      - ./json-server.json:/data/json-server.json
+    working_dir: /data
+    command: npx json-server --watch db.json --host 0.0.0.0 --port 3000
+    networks:
+      - feedback-network
+
+networks:
+  feedback-network:
+    driver: bridge

@@ -1,0 +1,11 @@
+{
+  "port": 3000,
+  "id": "id",
+  "watch": true,
+  "delay": 500,
+  "cors": true,
+  "no-cors": false,
+  "read-only": false,
+  "no-gzip": false,
+  "routes": "routes.json"
+}
