@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Feedback Manager App
 
-## Getting Started
+A full-stack feedback management application built with Next.js and JSON Server.
 
-First, run the development server:
+## Features
+
+- ✅ Create, Read, Update, and Delete feedback entries
+- ✅ Real-time updates
+- ✅ Responsive design
+- ✅ Form validation
+- ✅ Toast notifications
+- ✅ Docker support
+
+## Prerequisites
+
+- Node.js 16.x or higher
+- npm or yarn
+- Docker (optional)
+
+## Local Development
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd feedback-manager-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set up environment variables
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the root directory:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
 
-## Learn More
+### 3. Install dependencies
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Install frontend dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Install backend dependencies
+cd feedback-api
+npm install
+cd ..
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Start the development servers
 
-## Deploy on Vercel
+#### Option A: Using Docker (Recommended)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker-compose up --build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Option B: Manual Setup
+
+1. Start the backend server:
+   ```bash
+   cd feedback-api
+   npm start
+   ```
+   The backend will be available at http://localhost:3001
+
+2. In a new terminal, start the frontend:
+   ```bash
+   npm run dev
+   ```
+   The frontend will be available at http://localhost:3000
+
+## Deployment
+
+### Backend (Render.com)
+
+1. Push the `feedback-api` directory to a GitHub repository
+2. Deploy to Render.com as a Web Service
+3. Set the following environment variables:
+   - `NODE_ENV=production`
+   - `NPM_CONFIG_PRODUCTION=false`
+
+### Frontend (Vercel)
+
+1. Push the frontend code to a GitHub repository
+2. Deploy to Vercel
+3. Set the environment variable:
+   - `NEXT_PUBLIC_API_URL` - Your Render.com backend URL
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm test` - Run tests
+
+## Tech Stack
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: JSON Server
+- **Deployment**: Vercel, Render.com
+- **Containerization**: Docker
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
